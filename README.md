@@ -20,7 +20,7 @@ Website for Indian Restaurant made in ASP .NET MVC.
 **And if you click on ShowAll  You should see all the categories as below**
 ![S7](https://user-images.githubusercontent.com/53462568/118089838-6eefee80-b3e6-11eb-8d36-a9dfb987bdf8.png)
 
-**When we click on the details button we should be redirected to Login Page**
+**When we click on the details button we should be redirected to Login Page<br/>**
 **That means only authorize users will be allowed to go to details page**
 
 ![S8 0](https://user-images.githubusercontent.com/53462568/118090826-ac08b080-b3e7-11eb-8f5f-f4c40f1c16a7.png)
