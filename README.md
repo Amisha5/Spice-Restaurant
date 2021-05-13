@@ -30,13 +30,13 @@ Website for Indian Restaurant made in ASP .NET MVC.
 ![S9](https://user-images.githubusercontent.com/53462568/118090880-bf1b8080-b3e7-11eb-9282-29a1a039ac33.png)
 **You are also able to see the logged in user’s name on the navigation bar.**
 
-**When we click on AddToCart button items will be added to the cart as per the screen shot below.**
+**When we click on AddToCart button items will be added to the cart as per the screen shot below.\**
 **If we go to our shopping cart we can see the items added to the cart**
 ![S10](https://user-images.githubusercontent.com/53462568/118091464-7b754680-b3e8-11eb-9921-e7c752503e7b.png)
 
-**We have the + and – buttons to increase or decrease the quantity of the item ordered.**
-**We can click on the delete button to delete the item from the cart.**
-**We can click on the continue shopping link to go back to the home page to add more items to the cart.**
+**We have the + and – buttons to increase or decrease the quantity of the item ordered.\**
+**We can click on the delete button to delete the item from the cart.\**
+**We can click on the continue shopping link to go back to the home page to add more items to the cart\**
 
 **If  we click on the Summary page we will see the screen as below.**
 ![S11](https://user-images.githubusercontent.com/53462568/118091835-f0488080-b3e8-11eb-8a90-63305577c45e.png)
