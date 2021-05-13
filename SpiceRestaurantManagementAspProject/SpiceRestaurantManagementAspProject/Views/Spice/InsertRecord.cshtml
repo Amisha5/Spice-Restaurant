@@ -1,0 +1,86 @@
+﻿@model Spice_DomainModels.Models.OrderSummary
+@{
+    ViewBag.Title = "InsertRecord";
+}
+
+<h2>InsertRecord</h2>
+
+@using (Html.BeginForm("InsertRecord", "Spice"))
+{
+<div>
+
+    <div class="form-group col-md-10">
+        @Html.Label("Email")
+        <input type="text" value="@ViewBag.Email" class="form-control" readonly />
+
+    </div>
+
+    <div class="form-group col-md-10">
+        @Html.LabelFor(m => m.PickupDate)
+        <input type="date" name="PickupDate" placeholder="Enter Date" class="form-control" />
+    </div>
+    <div class="form-group col-md-10">
+        @Html.LabelFor(m => m.PickUpTime)
+        <input type="time" name="PickupTime" placeholder="Enter Time" class="form-control" />
+
+    </div>
+  
+    <div class="form-group col-md-10">
+        @Html.LabelFor(m => m.Comments)
+        <textarea type="text" name="Comments" placeholder="Enter Time" class="form-control"></textarea>
+    </div>
+    <div id="myModal" class="modal">
+
+        <!-- Modal content -->
+        <div class="modal-content" style="margin-left:250px;margin-right:200px;margin-top:20px;height:160px;width:50%;">
+            <div class="modal-header">
+                <span class="close">&times;</span>
+                <h2 style="color:brown;font-size:20px;" class="fa fa-credit-card">Order Status</h2>
+            </div>
+            <div class="modal-body">
+                
+                <a href="/Spice/CartRemove" class="btn btn-info">New Order</a>
+            </div>
+            
+        </div>
+        </div>
+
+
+        <div class="form-group col-md-10">
+            @*<a href="@Url.Action("CartRemove", "Spice")", id="myBtn" class="btn btn-info anchorDetails">Confirm Order</a>*@
+            <button id="myBtn" type="button" class="btn btn-info anchorDetails">Confirm Order</button>
+            <a href="/Spice/GetShoppingCart" class="btn btn-danger">Back</a>
+    @*<a href="/Spice/Index" class="btn btn-danger">Confirm Order</a>*@
+            @*@Html.ActionLink("Cancle","Index","Employee",new { })*@
+        </div>
+    </div>
+    <br />
+    }
+<script>
+    // Get the modal
+    var modal = document.getElementById("myModal");
+
+    // Get the button that opens the modal
+    var btn = document.getElementById("myBtn");
+
+    // Get the <span> element that closes the modal
+    var span = document.getElementsByClassName("close")[0];
+
+    // When the user clicks the button, open the modal
+    btn.onclick = function () {
+        modal.style.display = "block";
+    }
+
+    // When the user clicks on <span> (x), close the modal
+    span.onclick = function () {
+        modal.style.display = "none";
+    }
+
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function (event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    }
+</script>
+

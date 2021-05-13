@@ -1,0 +1,80 @@
+﻿@model IEnumerable<Spice_DomainModels.Models.ShoppingCart>
+@{
+    ViewBag.Title = "GetShoppingCart";
+}
+
+<style>
+    .plusIcon {
+        color: white;
+        background-color: #ce2b11;
+        height: 5vh;
+        text-align: center;
+        padding: 9px;
+        width: 30px;
+    }
+
+    .minusIcon {
+        color: white;
+        background-color: #2196f3;
+        height: 5vh;
+        text-align: center;
+        padding: 8px;
+        width: 30px;
+    }
+
+    .deleteIcon {
+        color: #cc0c0c;
+        background-color: #19181d;
+        height: 5vh;
+        text-align: center;
+        padding: 8px;
+        width: 30px;
+    }
+</style>
+<h2>GetShoppingCart</h2>
+@{
+    double Total = 0;
+}
+
+
+    <div class="jumbotron">
+        <div class="panel panel-primary container">
+            <div class="panel-heading" style="background-color: #100e0e;color:cadetblue; font-family:'Times New Roman';">
+                <i class="fa fa-shopping-cart" aria-hidden="true">Shopping Cart</i>
+                <a href="@Url.Action("MenuDeatils", "Spice")" style="text-decoration:none;float:right;padding-top:1px;border:dashed;width:150px;padding-left:15px;font:bold;font-family:'Times New Roman';" class="">Continue Shopping</a>
+            </div>
+            <div class="container panel-body">
+
+
+                @foreach (var item in Model)
+                {
+                    <div class="container table-bordered" style="border-color: #0a2e82;">
+                        <img style="width: 30%;height: 40%;padding-top: 30px;padding-bottom: 10px;" src="@Url.Content(item.MenuItem.MenuImages)" class="col-sm-3" />
+
+                        <h3 class="fas fa-pepper-hot tooltipDesign" style="color:forestgreen;" alt="@item.MenuItem.Spicyness" title="@item.MenuItem.Spicyness">@item.MenuItem.MenuName</h3>
+                        <div style="float:right;padding-top:16px;">
+
+                            <a class="fa fa-plus plusIcon" href="@Url.Action("AddSign", "Spice", new { id = item.MenuId })"></a>
+                            <a class="fa fa-minus minusIcon" href="@Url.Action("MinusSign", "Spice", new { id = item.MenuId })"></a>
+                            <a class="fa fa-trash deleteIcon" href="@Url.Action("DeleteCartItem", "Spice", new { id = item.MenuId })"></a>
+                        </div>
+                        <br /> <div class="" style="font-style: italic;font-family: 'Times New Roman'; font-size:20px;"> Rs: @item.MenuItem.Price</div>
+                        <div class="" id="pluscounts" style="font-style: italic;font-family: 'Times New Roman'; font-size:20px;">Total Item: @item.count</div>
+                        @{
+
+                            Total = Total + item.MenuItem.Price * item.count;
+                        }
+                        <br />
+                        <p style="font-style:italic;">@item.MenuItem.Descriptions</p>
+
+                        <button class="btn btn-group-xs" style="float:right;">Total Amount: @String.Format("{0:C}", item.MenuItem.Price * item.count)</button>
+                    </div>
+                    <br />
+                }
+            <div class="panel panel-footer">
+                <button type="button" class="btn btn-primary" style="float:right;">GrandTotal: @Total</button>
+                 <a href="/Spice/Summary" class="btn btn-info">Summary</a>
+            </div>
+            </div>
+        </div>
+    </div>

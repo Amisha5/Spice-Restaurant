@@ -1,0 +1,96 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{7DAEC691-428B-4A3B-97B5-7F006ED82472}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Spice_DataLayer</RootNamespace>
+    <AssemblyName>Spice_DataLayer</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Migrations\202102251343324_Initial Migration.cs" />
+    <Compile Include="Migrations\202102251343324_Initial Migration.Designer.cs">
+      <DependentUpon>202102251343324_Initial Migration.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202102261830252_Added OrderDetails and orderSummary table.cs" />
+    <Compile Include="Migrations\202102261830252_Added OrderDetails and orderSummary table.Designer.cs">
+      <DependentUpon>202102261830252_Added OrderDetails and orderSummary table.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202102271631487_Added ApplicationId in OrderSummary table.cs" />
+    <Compile Include="Migrations\202102271631487_Added ApplicationId in OrderSummary table.Designer.cs">
+      <DependentUpon>202102271631487_Added ApplicationId in OrderSummary table.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202102280637006_MenuId added in table OrderSummary.cs" />
+    <Compile Include="Migrations\202102280637006_MenuId added in table OrderSummary.Designer.cs">
+      <DependentUpon>202102280637006_MenuId added in table OrderSummary.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="SpiceDbContext.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Spice_DomainModels\Spice_DomainModels.csproj">
+      <Project>{a887ee1a-8f15-4251-b3f8-e0c47428a1fe}</Project>
+      <Name>Spice_DomainModels</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\202102251343324_Initial Migration.resx">
+      <DependentUpon>202102251343324_Initial Migration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202102261830252_Added OrderDetails and orderSummary table.resx">
+      <DependentUpon>202102261830252_Added OrderDetails and orderSummary table.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202102271631487_Added ApplicationId in OrderSummary table.resx">
+      <DependentUpon>202102271631487_Added ApplicationId in OrderSummary table.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202102280637006_MenuId added in table OrderSummary.resx">
+      <DependentUpon>202102280637006_MenuId added in table OrderSummary.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

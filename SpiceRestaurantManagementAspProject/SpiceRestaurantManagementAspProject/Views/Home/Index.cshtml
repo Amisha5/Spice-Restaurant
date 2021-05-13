@@ -1,0 +1,106 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<style>
+
+    .btnlistcolor {
+        font-family: 'Times New Roman';
+        font-style: italic;
+        font-size: 18px;
+        color: white;
+        background-color: #272020;
+        margin-top: 160px;
+    }
+    body
+    {
+        margin-left:0px;
+        padding:0px;
+    }
+    /*body {
+        max-width: 100%;
+        background-repeat: no-repeat;
+        vertical-align: middle;
+        border-style: none;
+        height: 100%;
+    }*/
+
+    .headIndex {
+       
+        font-family:'Times New Roman';color:brown;font:bold;border-bottom:2px solid;
+    }
+
+    .paraIndex {
+      font-style:italic;color:#715618;
+    }
+    /*#top-section-main {
+        background-image: url('https://bestanimations.com/media/food/1799466527food-animated-gif-4.gif');
+        background-repeat: no-repeat;
+        background-size: cover;
+        height: 750px;
+       padding-top:50px;
+        border: none;
+    }*/
+    #top-section-main {
+        width: 70%;
+        padding: 50px;
+        height: auto;
+        margin-left: 150px;
+        background-image: url('https://bestanimations.com/media/food/1799466527food-animated-gif-4.gif');
+        background-size: contain;
+        background-repeat: no-repeat;
+        border: 10px solid white;
+    }
+</style>
+<br />
+<div class="container ">
+    <br />
+
+    <div class=" center-block">
+        <br />
+        <div class="panel">
+            <br />
+            <a href="@Url.Action("MenuDeatils","Spice")" class="btn btn-info" style="margin-left:450px;height:8vh;margin-bottom:10px;font-size:15px;">Order Now > <h2 class="fa fa-mobile" aria-hidden="true"></h2></a>
+
+            @*<img src="https://bestanimations.com/media/food/1799466527food-animated-gif-4.gif" style="width:100%;height:auto;" />*@
+            <img src="https://media.istockphoto.com/photos/two-empty-wine-glasses-sitting-in-a-restaurant-on-a-warm-sunny-picture-id1018141890?k=6&m=1018141890&s=612x612&w=0&h=_OmlYECOxfO-VHY3eIzuJSPRXUXiFbeHHp3RUZGQoSQ=" style="width:100%;" />
+
+            @*<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRh81l7QunqSmnPCXtyuSCB_y6tEdUA93BvnQ&usqp=CAU" width="100%;"/>*@
+            @*<ul class="list-inline font-weight-bolder text-center">
+            <li><a href="@Url.Action("MenuDeatils","Spice")" class="btn btn-default btnlistcolor">Order Now > <h2 class="fa fa-mobile" aria-hidden="true"></h2></a></li>
+        </ul>*@
+
+        </div>
+
+        <marquee style="font-size:25px;color:darkorange;">
+            Order Order Order!!!!!!!!!!!
+        </marquee>
+        <div class="jumbotron container center-block">
+            <h3 style="font-family:'Times New Roman';font:italic; color:brown;font-size:25px;">Hey meet my Spice Restaurant which offers varieties of food like MainCourse, Desserts, Appetizer and Many.....!!!Taste it....</h3>
+            <br />
+            <div class="col-sm-4">
+                <img src="https://i.makeagif.com/media/4-22-2017/ff5F8Y.gif" style="width:100%">
+                <h3 class="headIndex">Appetizer Food</h3>
+                <p class="paraIndex">Appetizer is a small dish of food or a drink taken before a meal or the main course of a meal like Chaat papdi , Spring Roll....</p>
+                <a href="@Url.Action("Appetizer","Spice")" class="btn btn-info">Appetizer</a>
+
+            </div>
+            <div class="col-sm-4">
+                <img src="https://img-static.popxo.com/tr:w-600,rt-auto,q-40/app_photos/images/3844/original/indianfood.gif" style="width:100%;">
+                <h3 class="headIndex">MainCourse Food</h3>
+                <p class="paraIndex">The main course is food that is served as the main dish in a multi-course meal such as Butter Naan,Dal Tadka etc...</p>
+                <a href="@Url.Action("MainCourse","Spice")" class="btn btn-info" style="padding-top:5px;">Main Course</a>
+
+            </div>
+            <div class="col-sm-4">
+                <img src="https://media0.giphy.com/media/eMsA3LwYVyZgo9tZGP/giphy.gif" style="width:100%;height:27vh;">
+                <h3 class="headIndex">Desserts</h3>
+                <p class="paraIndex">Desserts are usually sweet course or dish (as of pastry or ice cream) usually served at the end of a meal.</p>
+                <a href="@Url.Action("Desserts","Spice")" class="btn btn-info">Desserts</a>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+

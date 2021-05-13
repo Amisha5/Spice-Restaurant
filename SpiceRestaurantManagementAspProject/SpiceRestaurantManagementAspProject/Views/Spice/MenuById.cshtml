@@ -1,0 +1,152 @@
+﻿@model Spice_DomainModels.Models.MenuItem
+@*@model SpiceRestaurantManagementAspProject.viewModels.MenuCategorySubCat*@
+@{
+    ViewBag.Title = "MenuById";
+}
+<style>
+    input {
+        height: 30px;
+        width: 40%;
+    }
+
+    textarea {
+        height: 50px;
+        width: 40%;
+    }
+</style>
+@using (Html.BeginForm("AddToCartItem", "Spice", new { MenuId = @Model.Id }))
+{
+<div class="border backgroundWhite row">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+    <br />
+    <br />
+    <div class="col-md-8">
+        <div class="form-group row">
+            <div class="col-md-4">
+                <label asp-for="@Model.MenuName" class="text-info font-weight-bold">Name</label>
+            </div>
+            <div class="col-md-8">
+                <input type="text" name="ApplicationUserId" hidden value="@ViewBag.UsrId" />
+                <input asp-for="@Model.Id" hidden value="@Model.Id" name="MenuItemId" />
+
+                <input asp-for="@Model.MenuName" readonly class="form-control" value="@Model.MenuName" />
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="col-md-4">
+                <label asp-for="@Model.Descriptions" class="text-info font-weight-bold">Description</label>
+            </div>
+            <div class="col-md-8">
+                <div class="border rounded p-2">
+                    <textarea rows="5" asp--for="@Model.Descriptions" readonly class="form-control" value="@Model.Descriptions">@Model.Descriptions</textarea>
+                </div>
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="col-md-4">
+                <label asp-for="@Model.Price" class="text-info font-weight-bold">Price:$</label>
+            </div>
+            <div class="col-md-8">
+                <input asp-for="@Model.Price" readonly class="form-control" value="@Model.Price" />
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="col-md-4">
+                <label asp-for="@Model.CategoryId" class="text-info font-weight-bold">Category</label>
+            </div>
+            <div class="col-md-8">
+                <input asp-for="@Model.Category.CategoryName" readonly class="form-control" value="@Model.Category.CategoryName" />
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="col-md-4">
+                <label asp-for="@Model.SubCategoryId" class="text-info font-weight-bold">SubCategory</label>
+            </div>
+            <div class="col-md-8">
+                <input asp-for="@Model.SubCategory.SubCategoryName" readonly class="form-control" value="@Model.SubCategory.SubCategoryName" />
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="col-md-4">
+                <label asp-for="@Model.Spicyness" class="text-info font-weight-bold">Spicyness</label>
+            </div>
+            <div class="col-md-8">
+                <input asp-for="@Model.Spicyness" readonly class="form-control" value="@Model.Spicyness">
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="col-md-4">
+                <label asp-for="Count" class="text-info font-weight-bold">Count</label>
+            </div>
+            <div class="col-md-8">
+                <input asp-for="Count" class="form-control" name="Count" value="1" />
+                <span asp-validation-for="Count" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="col-md-4">
+            </div>
+            <div class="col-md-4">
+                @Html.ActionLink("Back to List", "Menu", "Spice", new { @class = "btn btn-primary" })
+            </div>
+            <div class="col-md-4">
+                <button type="submit" value="Add to Cart" class="btn btn-danger form-control">Add to Cart</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-3 offset-1 d-none d-md-block">
+        <img src="@Url.Content(Model.MenuImages)" style="width:100%" ;border-radius:5px;border:1px solid #bbb9b9;" />
+    </div>
+</div>}
+@*<div class="jumbotron center-block">
+        @using (Html.BeginForm("ItemDetails", "Spice"))
+        {
+            <h2>ItemDetails</h2>
+            <div class="container table-bordered">
+
+            <img src="~/photos/cake.jpg" style="width:20%;" class="col-sm-4" />
+            <div>
+                <table class="table row col-lg-8 form-group" style="float:right">
+
+                    <tr>
+                        <td>Name</td>
+                        <td><input type="text" readonly="readonly" value="@Model.MenuName" /></td>
+
+                    </tr>
+                    <tr>
+                        <td>Description</td>
+                        <td><textarea type="text" readonly="readonly" value="@Model.Descriptions">@Model.Descriptions</textarea></td>
+                    </tr>
+                    <tr>
+                        <td>Price</td>
+                        <td><input type="text" readonly="readonly" value="@Model.Price" /></td>
+                    </tr>
+                    <tr>
+                        <td>Catergory</td>
+                        <td><input type="text" readonly="readonly" value="@Model.CategoryId" /></td>
+                    </tr>
+                    <tr>
+                        <td>SubCategory</td>
+                        <td><input type="text" readonly="readonly" value="@Model.SubCategoryId" /></td>
+                    </tr>
+                    <tr>
+                        <td>SPicyness</td>
+                        <td><input type="text" readonly="readonly" value="@Model.Spicyness" /></td>
+                    </tr>
+                    <tr>
+                        <td>Count</td>
+                        <td><input type="text" readonly="readonly" placeholder="enter count" /></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            @Html.ActionLink("Back To list", "MenuDeatils", "Spice", new { @class = "btn btn-danger" })
+                            <button type="submit" class="btn btn-info">Add To Cart</button>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+    </div>
+        }*@
+@*</div>*@

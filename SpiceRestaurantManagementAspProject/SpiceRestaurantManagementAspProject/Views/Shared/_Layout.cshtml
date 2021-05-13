@@ -1,0 +1,149 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+
+    @Styles.Render("~/Content/css")
+
+    <link href="~/Content/Site.css" />
+    <link href="~/Scripts/popper.js*" rel="stylesheet" />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/font-awesome.css" rel="stylesheet" />
+    <link href="~/Content/fontawesome-all.css" rel="stylesheet" />
+    @Scripts.Render("~/bundles/modernizr")
+
+<style>
+    /*body {
+            background-color: sandybrown;*/
+    /*background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR1WV0zRwwsF7LjsaiF5_MxsnYukci_xGphvw&usqp=CAU');
+                background-repeat: no-repeat;
+                background-size: 100%;*/ /*background-image: url('https://thumbs.dreamstime.com/b/indian-food-curry-butter-chicken-palak-paneer-chiken-tikka-biryani-vegetable-curry-papad-dal-palak-sabji-jira-alu-rice-138550014.jpg'); }
+        */
+  
+    .btnlistcolor {
+        font-family: 'Times New Roman';
+        font-style: italic;
+        font-size: 18px;
+        color: white;
+        background-color: brown;
+    }
+
+    .designbtn {
+        float: right;
+    }
+    .social {
+        margin-left: 40px;
+        color: black;
+        bottom: 20px;
+    }
+    .social-footer {
+        width: 30%;
+        float: left;
+        height: 3vh;
+    }
+    footer {
+        background-color: #a7afb3;
+        clear: both;
+        height: 20px;
+        padding-bottom: 0;
+        margin-bottom:0;
+    }
+</style>
+   
+
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <div class="navbar-brand">
+                    <i style="color:red;" class="fas fa-pepper-hot"></i>
+                    <i style="color:green;" class="fas fa-pepper-hot"></i>
+                    <i style="color: #ff8000;" class="fas fa-pepper-hot"></i>
+
+                </div>
+                @Html.ActionLink("Spice", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+
+                <div class="navbar-brand">
+                    <a href="@Url.Action("GetShoppingCart","Spice")"><i class="fa fa-shopping-cart" aria-hidden="true"></i></a>
+                </div>
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+
+                    @*<li>@Html.ActionLink("Menu", "MenuDeatils", "Spice")</li>
+                    <li>@Html.ActionLink("ShowAll", "MenuDeatils", "Spice")</li>*@
+
+                </ul>
+                @Html.Partial("_LoginPartial")
+            </div>
+        </div>
+    </div>
+    <div class="body-content container">
+        <br />
+        @RenderBody()
+        <hr />
+        @*<footer class="nav navbar-fixed-bottom">
+                <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+            </footer>*@
+
+    </div>
+    <br />
+    <br />
+    
+    <!--<footer>
+        <hr style="border-bottom: solid 3px #232f3c;">-->
+        @*<div class="social-footer col-lg-2">
+            <h2 style="font-family:'Times New Roman';color:black;">About</h2>
+            <p style="color:black;font-size:18px;text-align:left;">It is Spice Restaurant which include various <br />kinds of food such as appetizer, desserts, <br />Main Course, Beverage and many more..<br /> here you can order delecious and yummy <br />food online </p>
+
+        </div>*@
+        <!--<div class="social-footer" style="font-size:15px;">
+            <div class="center-block">-->
+                @*<a href="mailto:amishapatidar98@gmail.com" target="_blank" class="social"><i class="fa fa-envelope" style=" font-size: 40px;"></i></a>*@
+
+                <!--<h3 style="font-family:'Times New Roman';color:black;">Follow Us On</h3>
+                <a href="https://www.linkedin.com/in/amisha-patidar-a23410172" target="_blank" class="social btn btn-default"><i class="fa fa-linkedin" style=" font-size: 20px;">Linkedin</i></a>
+
+              
+                <a href="https://www.facebook.com/" target="_blank" class="social btn btn-default"><i class="fa fa-facebook-official" style=" font-size: 20px">Facebook</i></a>
+              
+                <a href="https://www.instagram.com/patidarami" target="_blank" class="social  btn btn-default"><i class="fa fa-instagram" style=" font-size: 20px; ">Instagram</i></a>
+
+            </div>
+        </div>-->
+
+
+        @*<div class="social-footer">
+            <div class="center-block">
+                <h2 style="font-family:'Times New Roman';color:black;">Contact Us</h2>
+                <p style="font-size:15px;color:black;font:bold;">
+                    Phone:<br />
+                    +255 266 64 63 53<br />
+                    +255 265 53 52 54<br />
+                    <br />
+
+                    <h4 style="color:black;">
+                        Email:<a href="mailto:amishapatidar98@gmail.com" target="_blank" class="social"><i class="fa fa-envelope" style=" font-size: 40px;color:white"></i></a>
+                    </h4>
+
+
+                </p>
+            </div>
+        </div>*@
+    <!--</footer>-->
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+</body>
+</html>

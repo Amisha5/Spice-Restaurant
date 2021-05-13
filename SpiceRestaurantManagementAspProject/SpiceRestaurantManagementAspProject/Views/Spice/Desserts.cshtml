@@ -1,0 +1,77 @@
+﻿@model IEnumerable<Spice_DomainModels.Models.MenuItem>
+@{
+    ViewBag.Title = "Desserts";
+}
+
+<h2>Desserts</h2>
+<style>
+    .designbtn {
+        float: right;
+        margin-bottom:4px;
+    }
+</style>
+<div class="jumbotron">
+    <ul class="list-inline font-weight-bolder text-center">
+        <li><a href="@Url.Action("MenuDeatils","Spice")" class="btn btn-default btnlistcolor">SHOW ALL</a></li>
+        <li><a href="@Url.Action("Appetizer","Spice")" class="btn btn-default btnlistcolor">APETIZER</a></li>
+        <li><a href="@Url.Action("MainCourse","Spice")" class="btn btn-default btnlistcolor">MAIN COURSE</a></li>
+        <li><a href="@Url.Action("Desserts","Spice")" class="btn btn-default btnlistcolor">DESERT</a></li>
+        <li>
+            <a href="@Url.Action("Beverage","Spice")" class="btn btn-default btnlistcolor">BEVERAGES</a>
+        </li>
+    </ul>
+    @foreach (var item in Model)
+    {
+
+        if (item.Category.CategoryName.Equals("Dessert"))
+        {
+<div class="container table-bordered" style="border-color: #b36e55;border-width:2px;">
+    <img style="width: 25%;height: 25%;padding-top: 10px;padding-bottom: 10px;" src="@Url.Content(item.MenuImages)" class="col-sm-3" />
+    @*<i style="color: red;font-size:larger;" class="fas fa-pepper-hot" ></i>*@
+    <div class="list-inline">
+        @*@Html.DisplayFor(e=>item.MenuName , new { @class="labeldesign"})*@
+        <i style="font-family:'Times New Roman';font-size:20px;padding-top:5px;">@item.MenuName</i>
+        @if (item.Spicyness == "Very Spicy")
+        {
+            <i class="fas fa-pepper-hot tooltipDesign" style="color:red;" alt="@item.Spicyness" title="@item.Spicyness"></i>
+
+        }
+
+
+        @if (item.Spicyness == "Spicy")
+        {
+            <h4 class="fas fa-pepper-hot tooltipDesign" style="color:forestgreen;" alt="@item.Spicyness" title="@item.Spicyness"></h4>
+
+        }
+
+        @if (item.Spicyness == "Not_Spicy")
+
+        {
+            <h4 class="fas fa-pepper-hot tooltipDesign" style="color: #ff8000;" alt="@item.Spicyness" title="@item.Spicyness"></h4>
+
+        }
+        @if (item.Spicyness == "NA")
+        {
+            <h4 class="tooltipDesign" style="color:forestgreen;" alt="@item.Spicyness" title="@item.Spicyness"></h4>
+
+        }
+    </div>
+    <h3 style="font-style:italic;">@String.Format("{0:C}", @item.Price)</h3><br />
+    <p style="font-style:italic;">@item.Descriptions</p>
+
+    @Html.ActionLink(linkText: "Details", actionName: "MenuById", controllerName: "Spice", routeValues: new { @item.Id }, htmlAttributes: new { @class = "btn btn-success designbtn" })
+
+</div>
+            <br />
+
+        }
+    }
+
+</div>
+<script>
+    var toolimage = document.getElementsByClassName("tooltipDesign");
+    for (var i = 0; i < toolimage.length; i++)
+    {
+        toolimage[i].title = toolimage[i].title;
+    }
+</script>

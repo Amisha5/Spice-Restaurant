@@ -1,0 +1,117 @@
+﻿@*@model IEnumerable<SpiceRestaurantManagementAspProject.viewModels.OrderShoppingViewModel>*@
+@model IEnumerable<Spice_DomainModels.Models.ShoppingCart>
+@{
+    ViewBag.Title = "Summary";
+}
+
+
+<h2 style="font-family:'Times New Roman';color:brown;text-align:center;">Order Summary</h2>
+
+@{
+    double Total = 0.0;
+}
+<div class="panel container" style="width:50%;">
+    <div class="panel-heading bg-primary" style="height: 6vh;padding-bottom:15px;color:white; font-family:'Times New Roman';font-size:20px;">
+
+        <i class="fa fa-shopping-cart" aria-hidden="true"> Shopping Cart</i>
+        <a href="@Url.Action("MenuDeatils", "Spice")" style="color:white;text-decoration:none;float:right;width:200px;padding-left:15px;font:bold;font-family:'Times New Roman';" class="">Continue Shopping</a>
+
+    </div>
+    <div class="panel panel-body">
+        <table class="table">
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td style="font-size:20px;font:bold;color:black;font-family:'Times New Roman';color:firebrick;">@item.MenuItem.MenuName <h4 style="float:right;">@String.Format("{0:C}", @item.MenuItem.Price)</h4><br />Quantity : @item.count</td>
+                    @{
+
+                        Total = Total + item.MenuItem.Price * item.count;
+                    }
+                </tr>
+            }
+            <tr>
+                <td style="color:black;font:bold;font-size:20px;font-family:'Times New Roman';color:firebrick;">
+                    Total(USD) :
+                    <button type="button" class="btn btn-group-xs" style="float:right;color:firebrick;">GrandTotal: @Total</button>
+                </td>
+            </tr>
+        </table>
+        <div class="panel-footer" style="height: 8vh;">
+            @*<a href="/Spice/InsertRecord" class="btn btn-primary">Add Employee Details</a>*@
+            <button id="myBtn" class="btn btn-primary" style="float:right;">Transaction</button>
+        </div>
+
+
+        <!-- The Modal -->
+        <div id="myModal" class="modal">
+
+            <!-- Modal content -->
+            <div class="modal-content" style="padding-left:20px;margin:112px;width:80%;">
+                <div class="modal-header">
+                    <span class="close">&times;</span>
+                    <h2 style="color:brown;font-size:20px;" class="fa fa-credit-card">Transaction</h2>
+                </div>
+                <div class="row">
+                    <div class="col-md-4">
+                        <label for="cname">Name on Card</label>
+                        <input type="text" id="cname" name="cardname" placeholder="John More Doe" class="form-control"><br />
+                    </div>
+                    <div class="col-md-4">
+                        <label for="ccnum">Credit card number</label>
+                        <input type="text" id="ccnum" name="cardnumber" placeholder="1122-2332-3443-4554" class="form-control"><br />
+                    </div>
+                    <div class="col-md-4">
+                        <label for="expmonth">Exp Month</label>
+                        <input type="text" id="expmonth" name="expmonth" placeholder="December" class="form-control"><br />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4">
+                        <label for="expyear">Exp Year</label>
+                        <input type="text" id="expyear" name="expyear" placeholder="2022" class="form-control">
+                    </div>
+                    <div class="col-md-4">
+                        <label for="cvv">CVV</label>
+                        <input type="text" id="cvv" name="cvv" placeholder="554" class="form-control">
+                    </div>
+                </div>
+                <br />
+                <div class="modal-footer">
+                    <a href="@Url.Action("InsertRecord","Spice")" class="btn fa fa-credit-card" " style="margin-right:550px;font-size:20px;"> Pay $@Total</a>
+
+                    @*<button type="button" class="btn btn-group-xs">Pay Amount :$@Total</button>*@
+                </div>
+            </div>
+
+
+        </div>
+        </div>
+    </div>
+    <script>
+        // Get the modal
+        var modal = document.getElementById("myModal");
+
+        // Get the button that opens the modal
+        var btn = document.getElementById("myBtn");
+
+        // Get the <span> element that closes the modal
+        var span = document.getElementsByClassName("close")[0];
+
+        // When the user clicks the button, open the modal
+        btn.onclick = function () {
+            modal.style.display = "block";
+        }
+
+        // When the user clicks on <span> (x), close the modal
+        span.onclick = function () {
+            modal.style.display = "none";
+        }
+
+        // When the user clicks anywhere outside of the modal, close it
+        window.onclick = function (event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+    </script>
